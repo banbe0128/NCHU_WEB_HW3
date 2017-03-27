@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>互動式履歷</title>
+	  <style type="text/css">
+	   body {color: black;
+  background-color: cyan }
+    table {
+    border-collapse: collapse;
+    width: 100%;}
+    table, th, td {
+	 background-color:orange;
+    border: 1px solid black;height: 50px;}
+  </style>
+  </head>
+  <body>
+    <form name="form1">
+        姓名：<br>
+        <input type="text" id ="username" name="username" placeholder="請輸入姓名" />
+        <br>
+        生日：<br>
+        <input type="date" name="birthday" />
+        <br>
+        <input type="radio" name="sex" value="male" checked> 男<br>
+        <input type="radio" name="sex" value="female"> 女<br>
+        <br>
+        <input type="checkbox" name="hobby" value="swimming" >運動
+        <input type="checkbox" name="hobby" value="basketball">閱讀
+        <input type="checkbox" name="hobby" value="baseball">畫畫
+        <br>
+        自傳:<textarea name="note" cols="50" rows="10"></textarea><img src="lie.jpg"width="25%"></a>
+        <br><br>
+        <input type="button" value="送出" onclick="test()"/>
+        <input type="reset" value="重設">
+
+
+        <br><br>
+    </form>
+
+    <p id="output">顯示結果</p>
+
+    <br><br>
+    <table>
+     <tr >
+       <th>姓名</th>
+       <th>生日</th>
+       <th>性別</th>
+       <th>興趣</th>
+       <th>自傳</th>
+     </tr>
+     <tr>
+       <td id="l">無</td>
+       <td id="m">無</td>
+       <td id="n">無</td>
+       <td id="o">無</td>
+       <td id="p">無</td>
+     </tr>
+   </table>
+   <br><br>
+   <HR color="blue" size="10" align="center">
+   <center><font size="5" face="DFKai-sb">以下為互動式</font></center>
+   <br><br>
+   <div id="tt">
+   <div>
+
+    <script type="text/javascript">
+      function test(){
+        var output = document.getElementById("output");
+        var l = document.getElementById("l"); 
+        var m = document.getElementById("m"); 
+        var n = document.getElementById("n");
+        var o = document.getElementById("o");
+        var p = document.getElementById("p");
+        var username =  document.getElementById("username").value;
+        var bd = document.form1.birthday.value;
+        var sex = document.form1.sex.value;
+        var hobby = document.form1.hobby[0].value;
+        var hobby1 = document.form1.hobby[1].value;
+        var hobby2 = document.form1.hobby[2].value;
+        var note = document.form1.note.value;
+        if(Boolean(document.form1.hobby[0].checked)==true){var a=hobby}
+        else {var a = ""}
+        if(Boolean(document.form1.hobby[1].checked)==true){var b=hobby1}
+        else {var b = ""}
+        if(Boolean(document.form1.hobby[2].checked)==true){var c=hobby2}
+        else {var c = ""}
+        alert("姓名:" + username + "\n生日 : " + bd + "\n性別 : " + sex +  "\n興趣 : " + a + "\n" + b + "\n"+ c + "\n自傳 : " + note );
+        output.innerHTML = "姓名 : " + username  +
+                           "\n生日 : " + bd +
+                           "\n性別 : " + sex +
+                           "\n興趣 : " + a + "\n" + b + "\n"+ c +
+                           "\n自傳 : " + note ;
+      l.innerHTML = username; 
+      m.innerHTML = bd;
+      n.innerHTML = sex;
+      o.innerHTML = a + "\n" + b + "\n"+ c;
+      p.innerHTML = note;
+      var objNode = document.getElementById("tt");
+      var objNewNode = document.createElement("table");
+      var hide = document.createElement("button");
+      hide.setAttribute("id","hidebutton");
+      var small= document.createElement("button");
+      small.setAttribute("id","smallbutton");
+      var large= document.createElement("button");
+      large.setAttribute("id","largebutton");
+      var c1 = document.createElement("tr");
+      var d1 = document.createElement("th");
+      var d2 = document.createElement("th");
+      var d3 = document.createElement("th");
+      var d4 = document.createElement("th");
+      var d5 = document.createElement("th");
+      var e1 = document.createElement("tr");
+      var f1 = document.createElement("th");
+      var f2 = document.createElement("th");
+      var f3 = document.createElement("th");
+      var f4 = document.createElement("th");
+      var f5 = document.createElement("th");
+      var t1 = document.createTextNode("姓名");
+      var t2 = document.createTextNode("生日");
+      var t3 = document.createTextNode("性別");
+      var t4 = document.createTextNode("興趣");
+      var t5 = document.createTextNode("自傳");
+      var t6 = document.createTextNode(username);
+      var t7 = document.createTextNode(bd);
+      var t8 = document.createTextNode(sex);
+      var t9 = document.createTextNode(a+"\n"+b+"\n"+c);
+      var t10 = document.createTextNode(note);
+      var t11 = document.createTextNode("隱藏表格");
+      var t12 = document.createTextNode("縮小字體");
+      var t13 = document.createTextNode("放大字體");
+      objNode.appendChild(objNewNode);
+      objNode.appendChild(small);
+      objNode.appendChild(large);
+      objNode.appendChild(hide);
+      objNewNode.appendChild(c1);
+      objNewNode.appendChild(e1);
+      c1.appendChild(d1);
+      c1.appendChild(d2);
+      c1.appendChild(d3);
+      c1.appendChild(d4);
+      c1.appendChild(d5);
+      d1.appendChild(t1);
+      d2.appendChild(t2);
+      d3.appendChild(t3);
+      d4.appendChild(t4);
+      d5.appendChild(t5);
+      e1.appendChild(f1);
+      e1.appendChild(f2);
+      e1.appendChild(f3);
+      e1.appendChild(f4);
+      e1.appendChild(f5);
+      f1.appendChild(t6);
+      f2.appendChild(t7);
+      f3.appendChild(t8);
+      f4.appendChild(t9);
+      f5.appendChild(t10);
+      small.appendChild(t12);
+      large.appendChild(t13);
+      hide.appendChild(t11);
+      d1.setAttribute("onmouseover","this.style.color='#FF3366',this.style.fontStyle='italic'");
+      d1.setAttribute("onmouseout", "this.style.color='initial',this.style.fontStyle='initial'");
+      d2.setAttribute("onmouseover","this.style.color='#FF3366',this.style.fontStyle='italic'");
+      d2.setAttribute("onmouseout", "this.style.color='initial',this.style.fontStyle='initial'");
+      d3.setAttribute("onmouseover","this.style.color='#FF3366',this.style.fontStyle='italic'");
+      d3.setAttribute("onmouseout", "this.style.color='initial',this.style.fontStyle='initial'");
+      d4.setAttribute("onmouseover","this.style.color='#FF3366',this.style.fontStyle='italic'");
+      d4.setAttribute("onmouseout", "this.style.color='initial',this.style.fontStyle='initial'");
+      d5.setAttribute("onmouseover","this.style.color='#FF3366',this.style.fontStyle='italic'");
+      d5.setAttribute("onmouseout", "this.style.color='initial',this.style.fontStyle='initial'");
+      f1.setAttribute("onmouseover","this.style.color='blue',this.style.fontWeight='bold'");
+      f1.setAttribute("onmouseout", "this.style.color='initial',this.style.fontWeight='initial'");
+      f2.setAttribute("onmouseover","this.style.color='blue',this.style.fontWeight='bold'");
+      f2.setAttribute("onmouseout", "this.style.color='initial',this.style.fontWeight='initial'");
+      f3.setAttribute("onmouseover","this.style.color='blue',this.style.fontWeight='bold'");
+      f3.setAttribute("onmouseout", "this.style.color='initial',this.style.fontWeight='initial'");
+      f4.setAttribute("onmouseover","this.style.color='blue',this.style.fontWeight='bold'");
+      f4.setAttribute("onmouseout", "this.style.color='initial',this.style.fontWeight='initial'");
+      f5.setAttribute("onmouseover","this.style.color='blue',this.style.fontWeight='bold'");
+      f5.setAttribute("onmouseout", "this.style.color='initial',this.style.fontWeight='initial'");
+      var hidebutton = document.getElementById("hidebutton");
+      hidebutton.onclick = function(){
+        var h = document.getElementById("tt");
+        if (h.style.display == "none") h.style.display = "";
+        else h.style.display = "none";
+      }
+      var smallbutton = document.getElementById("smallbutton");
+      smallbutton.onclick = function(){
+        var h = document.getElementById("tt");
+        tt.style.fontSize = "10pt";
+      }
+      var largebutton = document.getElementById("largebutton");
+      largebutton.onclick = function(){
+        var h = document.getElementById("tt");
+        tt.style.fontSize = "16pt";
+      }
+    }
+    </script>
+
+
+
+
+  </body>
+</html>
